@@ -1,9 +1,10 @@
 import express from "express";
 import path from "path";
+
 import routerApi from "../routes/api.js";
 import web from "../routes/web.js";
 
-import { DBService, DBMensajesSqlite } from "../services/db";
+import { DBService, DBMensajesSqlite } from "./db";
 import * as http from "http";
 import { initWSServer } from "./socket";
 
@@ -19,7 +20,7 @@ app.set("view engine", "pug");
 const viewsPath = path.resolve(__dirname, "../../views/");
 app.set("views", viewsPath);
 
-const myServer = http.Server(app);
+const myServer = new http.Server(app);
 myServer.on("error", (err) => {
   console.log("ERROR ATAJADO", err);
 });

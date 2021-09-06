@@ -1,4 +1,4 @@
-import Server from "./services/server";
+import Server from "./services/server.es6";
 
 const puerto = 8080;
 
